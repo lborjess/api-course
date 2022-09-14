@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: Ludvigs API
+  version: '1.0'
+  description: This is Ludvigs API
+  termsOfService: http://www.na.se
+  contact:
+    email: ludvig@ampit.se
+    name: Ludvig Börjesson
+    url: http://www.ampit.se
+  license:
+    name: Ludvigs License
+    url: http://www.ampit.se
+servers:
+  - url: https://my-json-server.typicode.com/bearc0025/api
+    variables: {}
+    description: Bears API
+  - url: https://my-json-server.typicode.com/lborjess/api-course
+    variables: {}
+    description: Ludvigs API
+paths:
+  /users:
+    summary: User level operations
+    description: Gets the users and lot of other description
+    get:
+      summary: fetch users
+      description: Here comes the description of the operation
+      operationId: fetchUsers
+      responses:
+        '2XX':
+          description: successful fetch
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullUser'
+                    
+        default:
+          description: Default error sample response
+      tags:
+        - users
+
+components:
+  schemas:
+    FullUser:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "abc123"
+        username:
+          type: string
+          example: "bear"
+        score:
+          type: integer
+          example: 55
+        active:
+          type: boolean
+          example: true
